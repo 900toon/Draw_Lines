@@ -10,44 +10,32 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        HandleInGameCanvas();
-        HandleInGamePauseCanvas();
-        HandleInGameOverCanvas();
+        HandleInGameUI();
     }
+    private void HandleInGameUI()
+    {
+        switch (GameManager.gameState)
+        {
+            case GameManager.GameState.inGamePause:
+                inGameCanvas.SetActive(false);
+                inGamePauseCanvas.SetActive(true);
+                inGameOverCanvas.SetActive(false);
+                break;
 
-    private void HandleInGamePauseCanvas()
-    {
-        if (GameManager.gameState == GameManager.GameState.inGamePause)
-        {
-            inGamePauseCanvas.SetActive(true);   
-        }
-        else
-        {
-            inGamePauseCanvas.SetActive(false);
-        }
-    }
-    private void HandleInGameCanvas()
-    {
-        if (GameManager.gameState == GameManager.GameState.inGame)
-        {
-            inGameCanvas.SetActive(true);
-        }
-        else
-        {
-            inGameCanvas.SetActive(false);
-        }
-    }
+            case GameManager.GameState.inGame:
+                inGameCanvas.SetActive(true);
+                inGamePauseCanvas.SetActive(false);
+                inGameOverCanvas.SetActive(false);
+                break;
 
-    private void HandleInGameOverCanvas()
-    {
-        if (GameManager.gameState == GameManager.GameState.inGameOver)
-        {
-            inGameOverCanvas.SetActive(true);
+            case GameManager.GameState.inGameOver:
+                inGameCanvas.SetActive(false);
+                inGamePauseCanvas.SetActive(false);
+                inGameOverCanvas.SetActive(true);
+                break;
+
         }
-        else
-        {
-            inGameOverCanvas.SetActive(false);
-        }
+            
     }
 
     public void Pause()
@@ -65,6 +53,12 @@ public class UIManager : MonoBehaviour
     public void BackToMainMenu()
     {
         GameManager.SetGameState(GameManager.GameState.inMainMenu);
+    }
+
+    public void MainMenu_LoadInGame()
+    {
+        Debug.Log("MENU:  load in game");
+        GameManager.LoadGame();
     }
 
     

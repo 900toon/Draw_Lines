@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
         inGame,
         inGamePause,
         inGameOver,
+        inGameComplete,
+        inLevelChoose,
     }
     
    
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     public static void LoadGame()
     {
         gameState = GameState.inGame;
+        Debug.Log("load in game");
     }
 
     public static void ReloadGame()
@@ -48,6 +51,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
+
+    public static void LoadMainMenu()
+    {
+        gameState = GameState.inMainMenu;
+    }
+
     public float GetCameraSize()
     {
         return cameraSize;
