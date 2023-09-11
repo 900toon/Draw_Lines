@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 
 
     public static GameState gameState = new GameState();
+
+    private const int MAIN_SCENE_CODE = 0;
+    private const int FIRST_LEVEL_SCENE_CODE = 1;
     public enum GameState
     {
         inMainMenu,
@@ -30,6 +34,8 @@ public class GameManager : MonoBehaviour
     public static void LoadGame()
     {
         gameState = GameState.inGame;
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(FIRST_LEVEL_SCENE_CODE);
         Debug.Log("load in game");
     }
 
@@ -55,6 +61,7 @@ public class GameManager : MonoBehaviour
     public static void LoadMainMenu()
     {
         gameState = GameState.inMainMenu;
+        SceneManager.LoadScene(MAIN_SCENE_CODE);
     }
 
     public float GetCameraSize()
@@ -64,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        LoadGame();
+        
     }
 
 }

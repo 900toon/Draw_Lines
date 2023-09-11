@@ -11,10 +11,16 @@ public class UITextHolder : MonoBehaviour
     //inGameOverMenuUI 
     [SerializeField] private TextMeshProUGUI enemyKilled;
     [SerializeField] private TextMeshProUGUI timeSurvived;
+    [SerializeField] private TextMeshProUGUI coinNumber;
 
+    private void SetCoinNumber()
+    {
+        coinNumber.text = $"$   {scoreRecorder.GetCoinNumber()}";
+    }
     private void SetEnemyKilledText()
     {
-        enemyKilled.text = $"Enemy Killed:      000000";
+        string enemyKillledString = scoreRecorder.GetMonsterKilledNumber().ToString("000000");
+        enemyKilled.text = $"Enemy Killed:      {enemyKillledString}";
     }
     private void SetTimeSurvivedText()
     {
@@ -37,6 +43,7 @@ public class UITextHolder : MonoBehaviour
         {
             SetEnemyKilledText();
             SetTimeSurvivedText();
+            SetCoinNumber();
         }
     }
     private void Update()

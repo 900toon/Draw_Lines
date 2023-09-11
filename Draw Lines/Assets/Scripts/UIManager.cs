@@ -12,30 +12,47 @@ public class UIManager : MonoBehaviour
     {
         HandleInGameUI();
     }
+
+    private GameManager.GameState currentState;
+    private bool IsTheGameStateChanged()
+    {
+        if (currentState != GameManager.gameState)
+        {
+            currentState = GameManager.gameState;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     private void HandleInGameUI()
     {
-        switch (GameManager.gameState)
+        if (IsTheGameStateChanged())
         {
-            case GameManager.GameState.inGamePause:
-                inGameCanvas.SetActive(false);
-                inGamePauseCanvas.SetActive(true);
-                inGameOverCanvas.SetActive(false);
-                break;
+            switch (GameManager.gameState)
+            {
+                case GameManager.GameState.inGamePause:
+                    inGameCanvas.SetActive(false);
+                    inGamePauseCanvas.SetActive(true);
+                    inGameOverCanvas.SetActive(false);
+                    break;
 
-            case GameManager.GameState.inGame:
-                inGameCanvas.SetActive(true);
-                inGamePauseCanvas.SetActive(false);
-                inGameOverCanvas.SetActive(false);
-                break;
+                case GameManager.GameState.inGame:
+                    inGameCanvas.SetActive(true);
+                    inGamePauseCanvas.SetActive(false);
+                    inGameOverCanvas.SetActive(false);
+                    break;
 
-            case GameManager.GameState.inGameOver:
-                inGameCanvas.SetActive(false);
-                inGamePauseCanvas.SetActive(false);
-                inGameOverCanvas.SetActive(true);
-                break;
+                case GameManager.GameState.inGameOver:
+                    inGameCanvas.SetActive(false);
+                    inGamePauseCanvas.SetActive(false);
+                    inGameOverCanvas.SetActive(true);
+                    break;
 
+            }
         }
-            
+        
     }
 
     public void Pause()
@@ -53,10 +70,12 @@ public class UIManager : MonoBehaviour
     public void BackToMainMenu()
     {
         GameManager.SetGameState(GameManager.GameState.inMainMenu);
+        GameManager.LoadMainMenu();
     }
 
     public void MainMenu_LoadInGame()
     {
+        //this one is for testing
         Debug.Log("MENU:  load in game");
         GameManager.LoadGame();
     }

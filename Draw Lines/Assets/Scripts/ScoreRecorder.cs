@@ -35,6 +35,12 @@ public class ScoreRecorder : MonoBehaviour
     {
         return (int)Mathf.Floor(survivalTime);
     }
+
+    public int GetCoinNumber()
+    {
+        
+        return GetMonsterKilledNumber() * (1 + (GetSurvivalTime()/30));
+    }
     
   
   
