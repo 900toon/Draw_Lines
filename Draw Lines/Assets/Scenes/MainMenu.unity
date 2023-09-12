@@ -208,8 +208,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1387518288}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: MainMenu_LoadInGame
+        m_TargetAssemblyTypeName: UIManager_MainMenu, Assembly-CSharp
+        m_MethodName: LoadGame_ForTesting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -870,12 +870,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387518286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc87ef201c3ccc54db150d4d680f458e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c7c5393ba946a04780deabc520be86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGamePauseCanvas: {fileID: 0}
-  inGameCanvas: {fileID: 0}
-  inGameOverCanvas: {fileID: 0}
 --- !u!1 &1840308675
 GameObject:
   m_ObjectHideFlags: 0

@@ -73,12 +73,7 @@ public class UIManager : MonoBehaviour
         GameManager.LoadMainMenu();
     }
 
-    public void MainMenu_LoadInGame()
-    {
-        //this one is for testing
-        Debug.Log("MENU:  load in game");
-        GameManager.LoadGame();
-    }
+    
 
     
 }

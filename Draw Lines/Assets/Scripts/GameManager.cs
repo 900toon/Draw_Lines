@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.inGame;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(FIRST_LEVEL_SCENE_CODE);
-        Debug.Log("load in game");
+        Debug.Log("GAME MANAGER: load in game");
     }
 
     public static void ReloadGame()
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        Debug.Log("game manager start");
     }
 
 }
