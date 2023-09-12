@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UIElements;
 
 public class InputManager : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class InputManager : MonoBehaviour
         selectPosition.z = 0;
 
         OnTouchPositionGet?.Invoke(this, new OnTouchPositionGetEventArgs() { touchPositionVector3 = selectPosition });
-        
+        /*Debug.Log($"Input Manager: current touch position:  {selectPosition}");*/
         
     }
 

@@ -46,8 +46,10 @@ public class GameManager : MonoBehaviour
     public static void GameOver()
     {
         gameState = GameState.inGameOver;
+        
+        Debug.Log("GameManager: Game Over");
     }
-
+    
     public static void Pause()
     {
         Time.timeScale = 0f;

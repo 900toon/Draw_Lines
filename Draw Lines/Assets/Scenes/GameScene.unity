@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 545143619}
-  nodesController: {fileID: 0}
+  nodesController: {fileID: 1613308918}
   monsterHolder: {fileID: 1814295225}
 --- !u!4 &173920769
 Transform:
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a3c2719aff9ac47a854caace32e8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoint: 3
+  healthPoint: 1
   monsterHolder: {fileID: 1814295225}
 --- !u!4 &545143620
 Transform:

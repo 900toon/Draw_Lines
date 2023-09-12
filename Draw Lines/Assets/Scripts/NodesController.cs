@@ -18,13 +18,15 @@ public class NodesController : MonoBehaviour
     private int nodesMaxAmount = 3;
     private void Start()
     {
-        inputManager.OnTouchPositionGet += GetTouched_OnTouchPositionGet;
+       
         nodesList = new List<GameObject>(); 
     }
     private void Update()
     {
+        SetNodesControllerAsGameStateChanged();
         NodesListClean();
         SetNodesList();
+        
 
     }
 
@@ -47,7 +49,6 @@ public class NodesController : MonoBehaviour
     }
     private void NodesListClean()
     {
-
         foreach (GameObject node in nodesList)
         {
             if (node == null)
@@ -95,6 +96,35 @@ public class NodesController : MonoBehaviour
     public float[] GetNodesEffectiveAreaLength_XandY()
     { 
         return new float[2]{ effectiveAreaLengthX, effectiveAreaLengthY };
-    } 
+    }
 
+    private GameManager.GameState currentGameState;
+    private void SetNodesControllerAsGameStateChanged()
+    {
+        if (currentGameState != GameManager.gameState)
+        {
+            currentGameState = GameManager.gameState;
+            if (currentGameState == GameManager.GameState.inGameOver)
+            {
+                /*nodesList.Clear();*/
+                UnSubscribeToEventPublisher();
+            }
+
+            if (currentGameState == GameManager.GameState.inGame)
+            {
+                SubscribeToEventPublisher();
+            }
+        }
+    }
+
+    private void SubscribeToEventPublisher()
+    {
+        inputManager.OnTouchPositionGet += GetTouched_OnTouchPositionGet;
+    }
+
+    private void UnSubscribeToEventPublisher()
+    {
+        inputManager.OnTouchPositionGet -= GetTouched_OnTouchPositionGet;
+    }
+    
 }
