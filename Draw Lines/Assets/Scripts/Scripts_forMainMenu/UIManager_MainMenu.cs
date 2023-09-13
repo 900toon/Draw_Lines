@@ -8,6 +8,11 @@ public class UIManager_MainMenu : MonoBehaviour
     {
         //this one is for testing
         Debug.Log("MENU:  load in game");
-        GameManager.LoadGame();
+        GameManager.LoadGame(2);
+    }
+
+    public void LoadLevelChooseMenu()
+    {
+        GameManager.LoadlEVELMenuScene();
     }
 }

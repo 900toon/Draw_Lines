@@ -104,6 +104,11 @@ public class NodesController : MonoBehaviour
         if (currentGameState != GameManager.gameState)
         {
             currentGameState = GameManager.gameState;
+            if (currentGameState != GameManager.GameState.inGame)
+            {
+                UnSubscribeToEventPublisher();
+            }
+
             if (currentGameState == GameManager.GameState.inGameOver)
             {
                 /*nodesList.Clear();*/

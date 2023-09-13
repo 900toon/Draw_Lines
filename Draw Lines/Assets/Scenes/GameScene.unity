@@ -575,9 +575,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666406be6fdefa84095a5468765d31c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 545143619}
-  nodesController: {fileID: 1613308918}
-  monsterHolder: {fileID: 1814295225}
 --- !u!4 &173920769
 Transform:
   m_ObjectHideFlags: 0
@@ -1548,7 +1545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &428902881
 RectTransform:
   m_ObjectHideFlags: 0
