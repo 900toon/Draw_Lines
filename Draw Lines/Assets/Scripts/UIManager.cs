@@ -73,7 +73,11 @@ public class UIManager : MonoBehaviour
         GameManager.LoadMainMenu();
     }
 
-    
+    [SerializeField] private GameObject ConfirmGoBackToMainMenuUI;
+    public void ConfirmGoBackToMainMenu()
+    {
+        ConfirmGoBackToMainMenuUI.SetActive(true);
+    }
 
     
 }
